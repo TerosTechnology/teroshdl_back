@@ -183,7 +183,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.languages.registerDefinitionProvider(tcl_selector, defProvider));
 
     //VHDL
-    context.subscriptions.push(vscode.languages.registerDocumentSymbolProvider(vhdlSelector, docProvider));
+    // context.subscriptions.push(vscode.languages.registerDocumentSymbolProvider(vhdlSelector, docProvider));
     // if (enable_vhdl_provider === true) {
     // }
     //Verilog
@@ -194,6 +194,7 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     if (is_alive === false && enable_vhdl_provider === true) {
+        context.subscriptions.push(vscode.languages.registerDocumentSymbolProvider(vhdlSelector, docProvider));
         context.subscriptions.push(vscode.languages.registerHoverProvider(vhdlSelector, hoverProvider));
         context.subscriptions.push(vscode.languages.registerDefinitionProvider(vhdlSelector, defProvider));
     }

@@ -167,7 +167,7 @@ export class Rusthdl_lsp {
     getServerOptionsEmbedded(context: ExtensionContext) {
         let linter_name = this.config_reader.get_linter_name('vhdl', 'error');
         let args: string[] = [];
-        if (linter_name === 'none') {
+        if (linter_name !== 'none') {
             args = ['--no-lint'];
         }
         args.push("--silent");
